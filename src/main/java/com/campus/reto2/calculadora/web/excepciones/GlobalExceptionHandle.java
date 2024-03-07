@@ -23,5 +23,11 @@ public class GlobalExceptionHandle {
         return new ResponseEntity<>(errorResponses,HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(OperationMathInvalid.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ResponseEntity<Object> handlOPerationMathInvalid(OperationMathInvalid ex){
+        ErrorResponses errorResponses = new ErrorResponses("Operacion matematica incorrecta",ex.getMessage());
+        return new ResponseEntity<>(errorResponses,HttpStatus.BAD_REQUEST);
+    }
 
 }
